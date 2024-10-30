@@ -8,7 +8,7 @@ async function fetchData() {
         if(data.length === 0) {
             throw new Error('No tickets found');
         }
-        console.log(data);
+        displayTickets(data);
     } catch (error) {
         console.error('Error fetching data', error);
         document.getElementById('error-message').style.display = 'block';
@@ -22,6 +22,7 @@ function displayTickets(tickets) {
     const ticketsContainer = document.getElementById('tickets');
     tickets.forEach(ticket => {
         const ticketElement = document.createElement('div');
+        ticketElement.classList.add('ticket');
         ticketElement.innerHTML = `
             <h2>Ticket ID: ${ticket.id}</h2>
             <p><strong>Customer Name:</strong> User ${ticket.userId}</p>
