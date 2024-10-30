@@ -13,6 +13,8 @@ async function fetchData() {
         console.error('Error fetching data', error);
         document.getElementById('error-message').style.display = 'block';
         document.getElementById('error-message').textContent = error.message;
+    } finally {
+    document.getElementById('loading-indicator').style.display = 'none';
     }
 };
 
